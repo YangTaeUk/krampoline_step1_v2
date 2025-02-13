@@ -13,4 +13,4 @@ COPY model.pkl .
 COPY index.py .
 
 # FastAPI 실행 (uvicorn 사용)
-CMD ["uvicorn", "index:app", "--port", "3000"]
+CMD ["uvicorn", "index:app", "--host", "0.0.0.0", "--port", "3000"]
