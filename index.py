@@ -12,5 +12,5 @@ class CustomHandler(SimpleHTTPRequestHandler):
 PORT = 3000
 
 with HTTPServer(("", PORT), CustomHandler) as httpd:
-    print(f"서버는 {PORT} 포트에서 실행 중입니다. 종료하려면 Ctrl+C를 누르세요.")
+    print(f"server port : {PORT} ")
     httpd.serve_forever()
