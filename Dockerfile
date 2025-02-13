@@ -6,7 +6,7 @@ WORKDIR /app
 
 # 필요 패키지 설치
 COPY requirements.txt .
-COPY model.pkl /app/model.pkl
+COPY model.pkl
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 애플리케이션 코드 복사
