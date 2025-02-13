@@ -5,11 +5,11 @@ FROM python:3.11
 WORKDIR /app
 
 # 필요 패키지 설치
-COPY requirements.txt .
-COPY model.pkl .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
 # 애플리케이션 코드 복사
+COPY model.pkl .
 COPY index.py .
 
 # FastAPI 실행 (uvicorn 사용)
