@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 from http.server import SimpleHTTPRequestHandler, HTTPServer
-
 
 class CustomHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
