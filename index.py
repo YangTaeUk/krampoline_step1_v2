@@ -1,16 +1,11 @@
-# -*- coding: utf-8 -*-
-from http.server import SimpleHTTPRequestHandler, HTTPServer
+from fastapi import FastAPI
 
-class CustomHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/plain; charset=utf-8')
-        self.end_headers()
-        self.wfile.write("Hello krampoline!".encode('utf-8'))
+app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI from Kubernetes!"}
 
-PORT = 3000
-
-with HTTPServer(("", PORT), CustomHandler) as httpd:
-    print(f"server port : {PORT} ")
-    httpd.serve_forever()
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "query": q}
